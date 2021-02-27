@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,10 +18,9 @@
 
 #pragma once
 
-#include <gtk/gtk.h>
+#include <limits.h>
 
-GdkPixbuf *
-iconstore_get_pixbuf (GFileInfo * file_info);
+#ifndef PATH_MAX
+#define PATH_MAX 4096 /* max # of characters in a path name */
+#endif
 
-void
-iconstore_clear ();

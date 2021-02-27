@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -17,20 +17,19 @@
    */
 
 #ifdef HAVE_CONFIG_H
-#include "../config.h"
+#include <config.h>
 #endif
 
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <locale.h>
 #include "fsearch.h"
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
+#include <locale.h>
 
 int
-main (int argc, char *argv[])
-{
-    setlocale (LC_ALL, "");
-    bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-    textdomain (GETTEXT_PACKAGE);
-    return g_application_run (G_APPLICATION (fsearch_application_new ()), argc, argv);
+main(int argc, char *argv[]) {
+    setlocale(LC_ALL, "");
+    bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+    textdomain(GETTEXT_PACKAGE);
+    return g_application_run(G_APPLICATION(fsearch_application_new()), argc, argv);
 }

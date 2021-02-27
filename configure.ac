@@ -1,16 +1,22 @@
-AC_INIT([FSearch], [0.1], [christian.boxdoerfer@posteo.de])
+AC_INIT([FSearch],
+        m4_esyscmd([build-aux/git-version-gen --fallback "0.1beta4" .tarball-version]),
+        [christian.boxdoerfer@posteo.de],
+        [fsearch],
+        [https://cboxdoerfer.github.io/fsearch])
 AM_INIT_AUTOMAKE([-Wall foreign])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/fsearch.c])
 AM_SILENT_RULES([yes])
 
-IT_PROG_INTLTOOL([0.50.1])
-GETTEXT_PACKAGE=AC_PACKAGE_TARNAME
-AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [GETTEXT package name])
+GETTEXT_PACKAGE=fsearch
 AC_SUBST(GETTEXT_PACKAGE)
-AM_GLIB_GNU_GETTEXT
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [GETTEXT package name])
+AM_GNU_GETTEXT_VERSION([0.19.7])
+AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.7])
+AM_GNU_GETTEXT([external])
 
 AC_PROG_CC
+AC_PROG_INSTALL
 
 AC_ARG_ENABLE(debug,
               AS_HELP_STRING([--enable-debug],
@@ -31,7 +37,28 @@ AX_CHECK_COMPILE_FLAG([-std=c11], [CFLAGS+=" -std=c11" ],
                        exit -1
                       ])
 
+# Checks for libraries.
 
+# Checks for header files.
+AC_CHECK_HEADERS([inttypes.h limits.h locale.h stddef.h stdint.h stdlib.h string.h sys/param.h sys/time.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_CHECK_HEADER_STDBOOL
+AC_C_INLINE
+AC_TYPE_INT32_T
+AC_TYPE_OFF_T
+AC_TYPE_SIZE_T
+AC_TYPE_UINT16_T
+AC_TYPE_UINT32_T
+AC_TYPE_UINT64_T
+AC_TYPE_UINT8_T
+
+# Checks for library functions.
+AC_FUNC_ALLOCA
+AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK
+AC_FUNC_MALLOC
+AC_FUNC_REALLOC
+AC_CHECK_FUNCS([atexit floor gettimeofday memset setlocale strchr strdup strpbrk strstr strverscmp])
 
 PKG_PROG_PKG_CONFIG
 AC_PATH_PROG([GLIB_COMPILE_RESOURCES], [glib-compile-resources])

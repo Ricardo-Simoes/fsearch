@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,24 +18,22 @@
 
 #pragma once
 
+#include "fsearch_config.h"
+#include "fsearch_window.h"
 #include <gtk/gtk.h>
 #include <stdint.h>
-#include "config.h"
-
-GtkTreeView *
-listview_new (void);
 
 void
-listview_add_column (GtkTreeView *view, uint32_t col_type, int32_t size, int32_t pos);
+listview_add_column(GtkTreeView *view, uint32_t col_type, int32_t size, int32_t pos, FsearchApplicationWindow *win);
 
 void
-listview_add_default_columns (GtkTreeView *view);
+listview_add_default_columns(GtkTreeView *view, FsearchConfig *config, FsearchApplicationWindow *win);
 
 void
-listview_remove_column_at_pos (GtkTreeView *view, int32_t pos);
+listview_remove_column_at_pos(GtkTreeView *view, int32_t pos);
 
 void
-listview_remove_column (GtkTreeView *view, uint32_t col_type);
+listview_remove_column(GtkTreeView *view, uint32_t col_type);
 
 uint32_t
-listview_column_get_pos (GtkTreeView *view, uint32_t col_type);
+listview_column_get_pos(GtkTreeView *view, uint32_t col_type);

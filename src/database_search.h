@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,11 +18,13 @@
 
 #pragma once
 
-#include <stdint.h>
 #include "array.h"
 #include "btree.h"
-#include "query.h"
+#include "database.h"
+#include "fsearch_filter.h"
 #include "fsearch_thread_pool.h"
+#include "query.h"
+#include <stdint.h>
 
 typedef struct _DatabaseSearch DatabaseSearch;
 typedef struct _DatabaseSearchEntry DatabaseSearchEntry;
@@ -33,107 +35,62 @@ enum {
     DB_SEARCH_MODE_REGEX = 1,
 };
 
-typedef enum {
-    FSEARCH_FILTER_NONE,
-    FSEARCH_FILTER_FOLDERS,
-    FSEARCH_FILTER_FILES,
-} FsearchFilter;
-
-typedef struct
-{
+typedef struct _DatabaseSearchResult {
+    FsearchDatabase *db;
     GPtrArray *results;
     void *cb_data;
     uint32_t num_folders;
     uint32_t num_files;
 } DatabaseSearchResult;
 
-struct _DatabaseSearch
-{
+struct _DatabaseSearch {
     GPtrArray *results;
     FsearchThreadPool *pool;
 
-    DynamicArray *entries;
-    uint32_t num_entries;
-
     GThread *search_thread;
+    bool search_terminate;
     bool search_thread_terminate;
     GMutex query_mutex;
     GCond search_thread_start_cond;
 
-    char *query;
     FsearchQuery *query_ctx;
-    FsearchFilter filter;
-    uint32_t max_results;
     uint32_t num_folders;
     uint32_t num_files;
-    bool hide_results;
-    bool match_case;
-    bool enable_regex;
-    bool search_in_path;
-    bool auto_search_in_path;
 };
 
 void
-db_search_free (DatabaseSearch *search);
+db_search_free(DatabaseSearch *search);
 
 DatabaseSearch *
-db_search_new (FsearchThreadPool *pool,
-               DynamicArray *entries,
-               uint32_t num_entries,
-               uint32_t max_results,
-               FsearchFilter filter,
-               const char *query,
-               bool hide_results,
-               bool match_case,
-               bool enable_regex,
-               bool auto_search_in_path,
-               bool search_in_path);
+db_search_new(FsearchThreadPool *pool);
 
 BTreeNode *
-db_search_entry_get_node (DatabaseSearchEntry *entry);
+db_search_entry_get_node(DatabaseSearchEntry *entry);
 
 uint32_t
-db_search_entry_get_pos (DatabaseSearchEntry *entry);
+db_search_entry_get_pos(DatabaseSearchEntry *entry);
 
 void
-db_search_entry_set_pos (DatabaseSearchEntry *entry, uint32_t pos);
+db_search_entry_set_pos(DatabaseSearchEntry *entry, uint32_t pos);
 
 void
-db_search_set_query (DatabaseSearch *search, const char *query);
-
-void
-db_search_update (DatabaseSearch *search,
-                  DynamicArray *entries,
-                  uint32_t num_entries,
-                  uint32_t max_results,
-                  FsearchFilter filter,
-                  const char *query,
-                  bool hide_results,
-                  bool match_case,
-                  bool enable_regex,
-                  bool auto_search_in_path,
-                  bool search_in_path);
-
-void
-db_search_results_clear (DatabaseSearch *search);
-
-void
-db_search_set_search_in_path (DatabaseSearch *search, bool search_in_path);
+db_search_results_clear(DatabaseSearch *search);
 
 uint32_t
-db_search_get_num_results (DatabaseSearch *search);
+db_search_get_num_results(DatabaseSearch *search);
 
 uint32_t
-db_search_get_num_files (DatabaseSearch *search);
+db_search_get_num_files(DatabaseSearch *search);
 
 uint32_t
-db_search_get_num_folders (DatabaseSearch *search);
+db_search_get_num_folders(DatabaseSearch *search);
 
 GPtrArray *
-db_search_get_results (DatabaseSearch *search);
+db_search_get_results(DatabaseSearch *search);
 
 void
-db_search_remove_entry (DatabaseSearch *search, DatabaseSearchEntry *entry);
+db_search_remove_entry(DatabaseSearch *search, DatabaseSearchEntry *entry);
 
 void
-db_perform_search (DatabaseSearch *search, void (*callback)(void *), void *callback_data);
+db_search_queue(DatabaseSearch *search, FsearchQuery *query);
+

@@ -7,336 +7,1284 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FSearch 0.1\n"
-"Report-Msgid-Bugs-To: <pavelmc@gmail.com>\n"
-"POT-Creation-Date: 2016-10-16 17:30+0200\n"
-"PO-Revision-Date: 2016-10-17 17:14-0400\n"
-"Last-Translator: Pavel Milanes (CO7WT) <pavelmc@gmail.com>\n"
-"Language-Team: Spanish\n"
+"Report-Msgid-Bugs-To: christian.boxdoerfer@posteo.de\n"
+"POT-Creation-Date: 2020-10-30 12:42+0100\n"
+"PO-Revision-Date: 2021-01-12 09:20+0000\n"
+"Last-Translator: badlop <badlop@process-one.net>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/fsearch/"
+"translations/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
-#: ../src/fsearch.glade.h:1
-msgid "Open File(s)"
-msgstr "Abrir fichero(s)"
+#: src/database.c:1023
+msgid "Sorting..."
+msgstr "Ordenando..."
 
-#: ../src/fsearch.glade.h:2
-msgid "Open With Other Application"
-msgstr "Abrir con..."
+#: src/fsearch.c:183
+msgid "Show version information"
+msgstr "Mostrar información de la versión"
 
-#: ../src/fsearch.glade.h:3
-msgid "Open Containing Folder"
-msgstr "Abrir la ubicación"
-
-#: ../src/fsearch.glade.h:4
-msgid "Open File(s) in File Manager"
-msgstr "Abrir fichero(s) en el navegador"
-
-#: ../src/fsearch.glade.h:5
-msgid "Move to Trash"
-msgstr "Eliminar"
-
-#: ../src/fsearch.glade.h:6
-msgid "FSearch"
-msgstr "FSearch"
-
-#: ../src/fsearch.glade.h:7
-msgid "_File"
-msgstr "_Fichero"
-
-#: ../src/fsearch.glade.h:8
-msgid "New Window"
-msgstr "Nueva ventana"
-
-#: ../src/fsearch.glade.h:9
-msgid "Open Folder"
-msgstr "Abrir carpeta"
-
-#: ../src/fsearch.glade.h:10 ../src/popover.ui.h:1
-msgid "Update Database"
+#: src/fsearch.c:190
+msgid "Update the database"
 msgstr "Actualizar base de datos"
 
-#: ../src/fsearch.glade.h:11
-msgid "_Edit"
-msgstr "_Editar"
+#: src/fsearch.c:387
+msgid "translator-credits"
+msgstr "Eugenio Monforte"
 
-#: ../src/fsearch.glade.h:12
-msgid "Deselect All"
-msgstr "No seleccionar ninguno"
+#: src/fsearch.c:389
+msgid "A search utility focusing on performance and advanced features"
+msgstr ""
+"Herramienta de búsqueda centrada en la velocidad y con prestaciones avanzadas"
 
-#: ../src/fsearch.glade.h:13
-msgid "Invert Selection"
-msgstr "Invertir selección"
+#: src/fsearch.glade:73
+msgid "New window"
+msgstr "Nueva ventana"
 
-#: ../src/fsearch.glade.h:14
-msgid "_View"
-msgstr "_Ver"
+#: src/fsearch.glade:88
+msgid "Update database"
+msgstr "Actualizar base de datos"
 
-#: ../src/fsearch.glade.h:15
-msgid "Show Menubar"
-msgstr "Mostrar barra de menú"
+#: src/fsearch.glade:103 src/fsearch.glade:622
+msgid "Cancel database update"
+msgstr "Cancelar la actualización de la base de datos"
 
-#: ../src/fsearch.glade.h:16
+#: src/fsearch.glade:137 src/menus.ui:106
+msgid "Search in Path"
+msgstr "Buscar en la ruta"
+
+#: src/fsearch.glade:151 src/menus.ui:110
+msgid "Match Case"
+msgstr "Distinguir mayúsculas y minúsculas"
+
+#: src/fsearch.glade:165 src/menus.ui:114
+msgid "Enable RegEx"
+msgstr "Activar expresiones regulares"
+
+#: src/fsearch.glade:190 src/menus.ui:89
 msgid "Show Statusbar"
 msgstr "Mostrar barra de estado"
 
-#: ../src/fsearch.glade.h:17
+#: src/fsearch.glade:204 src/menus.ui:93
 msgid "Show Filter"
 msgstr "Mostrar filtro"
 
-#: ../src/fsearch.glade.h:18
+#: src/fsearch.glade:218 src/menus.ui:97
 msgid "Show Search Button"
-msgstr "Mostrar boton de búsqueda"
+msgstr "Mostrar botón de busca"
 
-#: ../src/fsearch.glade.h:19
-msgid "_Search"
-msgstr "_Buscar"
-
-#: ../src/fsearch.glade.h:20
-msgid "Search in Path"
-msgstr "Buscar en el camino actual"
-
-#: ../src/fsearch.glade.h:21
-msgid "Match Case"
-msgstr "Coincidir capitalización"
-
-#: ../src/fsearch.glade.h:22
-msgid "Enable RegEx"
-msgstr "Habilitar expresiones regulares"
-
-#: ../src/fsearch.glade.h:23
-msgid "_Help"
-msgstr "_Ayuda"
-
-#: ../src/fsearch.glade.h:24
-msgid "Search..."
-msgstr "Buscar..."
-
-#: ../src/fsearch.glade.h:25
-msgid "Select a Filter"
-msgstr "Seleccionar un filtro"
-
-#: ../src/fsearch.glade.h:26
-msgid "All"
-msgstr "Todo"
-
-#: ../src/fsearch.glade.h:27
-msgid "Folders"
-msgstr "Carpetas"
-
-#: ../src/fsearch.glade.h:28
-msgid "Files"
-msgstr "Ficheros"
-
-#: ../src/fsearch.glade.h:29 ../src/preferences.ui.h:12
-msgid "Search"
-msgstr "Buscar"
-
-#: ../src/fsearch.glade.h:30
-msgid "Number of Search Results"
-msgstr "Cantidad de resultados"
-
-#: ../src/fsearch.glade.h:31
-msgid "0 Items"
-msgstr "0 Encontrados"
-
-#: ../src/fsearch.glade.h:32
-msgid "Selected Folder and Files"
-msgstr "Seleccionar carpetas y archivos"
-
-#: ../src/fsearch.glade.h:33
-msgid "0/0"
-msgstr "0/0"
-
-#: ../src/fsearch.glade.h:34 ../src/preferences.ui.h:20
-msgid "Database"
-msgstr "Base de datos"
-
-#: ../src/fsearch.glade.h:35 ../src/overlay.ui.h:5
-msgid "Updating Database..."
-msgstr "Actualizando base de datos..."
-
-#: ../src/fsearch.glade.h:36
-msgid "page0"
-msgstr "Página 0"
-
-#: ../src/fsearch.glade.h:37
-msgid "(empty)"
-msgstr "(vacío)"
-
-#: ../src/fsearch.glade.h:38
-msgid "page1"
-msgstr "Página 1"
-
-#: ../src/fsearch.glade.h:39
-#, fuzzy
-msgid "CASE"
-msgstr "CASO"
-
-#: ../src/fsearch.glade.h:40
-#, fuzzy
-msgid "PATH"
-msgstr "CAMINO"
-
-#: ../src/fsearch.glade.h:41
-#, fuzzy
-msgid "REGEX"
-msgstr "REGEX"
-
-#: ../src/menus.ui.h:1
-msgid "_Open"
-msgstr "_Abrir"
-
-#: ../src/menus.ui.h:2
-msgid "_Open Folder"
-msgstr "_Abrir Carpeta"
-
-#: ../src/menus.ui.h:3
-msgid "C_ut"
-msgstr "C_ortar"
-
-#: ../src/menus.ui.h:4
-msgid "_Copy"
-msgstr "_Copiar"
-
-#: ../src/menus.ui.h:5
-msgid "_Delete"
-msgstr "_Eliminar"
-
-#: ../src/menus.ui.h:6 ../src/listview.c:145
-msgid "Name"
-msgstr "Nombre"
-
-#: ../src/menus.ui.h:7 ../src/listview.c:175
-msgid "Path"
-msgstr "Camino"
-
-#: ../src/menus.ui.h:8 ../src/listview.c:265
-msgid "Type"
-msgstr "Tipo"
-
-#: ../src/menus.ui.h:9 ../src/listview.c:204
-msgid "Size"
-msgstr "Tamaño"
-
-#: ../src/menus.ui.h:10 ../src/listview.c:236
-msgid "Date Modified"
-msgstr "Fecha"
-
-#: ../src/overlay.ui.h:1
-msgid "Emtpy Database"
-msgstr "Base de datos vacía"
-
-#: ../src/overlay.ui.h:2
-msgid "Go to <b>Edit → Preferences → Database</b> and add some locations"
-msgstr "Ve a <b>Editar → Preferencias → Base de Datos</b> y añade algún camino"
-
-#: ../src/overlay.ui.h:3
-msgid "Empty Query"
-msgstr "Consulta vacía"
-
-#: ../src/overlay.ui.h:4
-msgid "Press <b>Ctrl + F</b> and start typing"
-msgstr "Presiona <b>Ctrl + F</b> y comienza a escribir"
-
-#: ../src/overlay.ui.h:6
-msgid "..."
-msgstr "..."
-
-#: ../src/overlay.ui.h:7
-msgid "This may take a while."
-msgstr "Esto puede demorar un rato..."
-
-#: ../src/overlay.ui.h:8
-msgid "No Results Found"
-msgstr "No se encontraron resultados"
-
-#: ../src/overlay.ui.h:9
-msgid "Try a different search"
-msgstr "Prueba una búsqueda diferente"
-
-#: ../src/preferences.ui.h:1
+#: src/fsearch.glade:243 src/menus.ui:79 src/preferences.ui:37
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: ../src/preferences.ui.h:2
+#: src/fsearch.glade:268 src/menus.ui:123
+msgid "About"
+msgstr "Acerca de"
+
+#: src/fsearch.glade:293 src/menus.ui:42
+msgid "Quit"
+msgstr "Salir"
+
+#: src/fsearch.glade:416
+msgid "Number of Search Results"
+msgstr "Cantidad de resultados"
+
+#: src/fsearch.glade:417
+msgid "0 Items"
+msgstr "0 elementos"
+
+#: src/fsearch.glade:454
+msgid "Index:"
+msgstr "Índice:"
+
+#: src/fsearch.glade:522
+msgid "Number of selected folders"
+msgstr "Cantidad de carpetas seleccionadas"
+
+#: src/fsearch.glade:523 src/fsearch.glade:548
+msgid "0/0"
+msgstr "0/0"
+
+#: src/fsearch.glade:547
+msgid "Number of selected files"
+msgstr "Cantidad de ficheros seleccionados"
+
+#: src/fsearch.glade:606 src/fsearch_window.c:959 src/overlay.ui:213
+#, c-format
+msgid "Updating Database…"
+msgstr "Actualizando base de datos…"
+
+#: src/fsearch.glade:639 src/preferences.ui:1065
+msgid "page0"
+msgstr "Página 0"
+
+#: src/fsearch.glade:663
+msgid "Number of database items"
+msgstr "Cantidad de elementos en la base de datos"
+
+#: src/fsearch.glade:664
+msgid "(empty)"
+msgstr "(vacío)"
+
+#: src/fsearch.glade:675 src/preferences.ui:1083
+msgid "page1"
+msgstr "Página 1"
+
+#: src/fsearch.glade:701
+msgid ""
+"Search term contains upper case characters.\n"
+"<b>Match Case</b> was temporarily activated for this term."
+msgstr ""
+"El término de búsqueda contiene caracteres en mayúsculas.\n"
+"<b>Distinguir mayúsculas y minúsculas</b> se activó temporalmente para este "
+"término."
+
+#: src/fsearch.glade:732 src/fsearch.glade:785
+msgid "CASE"
+msgstr "MAYÚSCULAS"
+
+#: src/fsearch.glade:808
+msgid ""
+"Search term contains path separators.\n"
+"<b>Search in Path</b> was temporarily activated for this term."
+msgstr ""
+"El término de búsqueda contiene separadores de ruta.\n"
+"<b>Buscar en la ruta</b> se activó temporalmente para este término."
+
+#: src/fsearch.glade:839 src/fsearch.glade:892
+msgid "PATH"
+msgstr "RUTA"
+
+#: src/fsearch.glade:945
+msgid "REGEX"
+msgstr "EXPRESIONES REGULARES"
+
+#: src/fsearch.glade:1065
+msgid "Search…"
+msgstr "Buscar…"
+
+#: src/fsearch.glade:1087
+msgid "Select a Filter"
+msgstr "Seleccione un filtro"
+
+#: src/fsearch.glade:1118 src/preferences.ui:679
+msgid "Search"
+msgstr "Buscar"
+
+#: src/fsearch_filter.c:79
+msgid "All"
+msgstr "Todo"
+
+#: src/fsearch_filter.c:81
+msgid "Folders"
+msgstr "Carpetas"
+
+#: src/fsearch_filter.c:82
+msgid "Files"
+msgstr "Archivos"
+
+#: src/fsearch_filter.c:84
+msgid "Archives"
+msgstr "Archivadores"
+
+#: src/fsearch_filter.c:86
+msgid "Audio"
+msgstr "Audio"
+
+#: src/fsearch_filter.c:89
+msgid "Documents"
+msgstr "Documentos"
+
+#: src/fsearch_filter.c:91
+msgid "Pictures"
+msgstr "Imágenes"
+
+#: src/fsearch_filter.c:93
+msgid "Videos"
+msgstr "Videos"
+
+#: src/fsearch_preferences_widgets.c:193 src/fsearch_preferences_widgets.c:234
+msgid "Active"
+msgstr "Activar"
+
+#: src/fsearch_preferences_widgets.c:197 src/fsearch_preferences_widgets.c:238
+#: src/listview.c:203 src/menus.ui:216
+msgid "Path"
+msgstr "Ruta"
+
+#: src/fsearch_preferences_widgets.c:200
+msgid "Update"
+msgstr "Actualizar"
+
+#: src/fsearch_window.c:121 src/fsearch_window.c:467 src/fsearch_window.c:917
+#, c-format
+msgid "%'d Items"
+msgstr "%'d elementos"
+
+#: src/fsearch_window.c:400 src/fsearch_window.c:557
+msgid "Querying…"
+msgstr "Consultando…"
+
+#: src/fsearch_window.c:733 src/fsearch_window_actions.c:406
+msgid "Failed to open file"
+msgstr "No pudo abrirse el archivo"
+
+#: src/fsearch_window.c:734 src/fsearch_window_actions.c:407
+msgid "Do you want to keep the window open?"
+msgstr "¿Desea mantener la ventana abierta?"
+
+#: src/fsearch_window.c:923
+msgid "Last Updated: %Y-%m-%d %H:%M"
+msgstr "Última actualización: %d.%m.%Y, %H:%M"
+
+#: src/fsearch_window.c:936 src/overlay.ui:143
+#, c-format
+msgid "Loading Database…"
+msgstr "Cargando base de datos…"
+
+#: src/fsearch_window.c:1121
+msgid "Background tasks are active."
+msgstr "Las tareas en segundo plano están activas."
+
+#: src/fsearch_window.c:1123
+msgid ""
+"Closing the window isn't possible right now.\n"
+"Please wait a moment and then try again."
+msgstr ""
+"Ahora mismo, cerrar la ventana no es posible.\n"
+"Por favor, espere un momento y luego trate nuevamente."
+
+#: src/fsearch_window_actions.c:77
+#, c-format
+msgid "Do you really want to open %d file(s)?"
+msgstr "¿En verdad quiere abrir %d archivo(s)?"
+
+#: src/fsearch_window_actions.c:79
+msgid "Opening Files…"
+msgstr "Abrir archivo(s)…"
+
+#: src/fsearch_window_actions.c:148
+#, c-format
+msgid "Do you really want to remove %d file(s)?"
+msgstr "¿En verdad quiere eliminar %d archivo(s)?"
+
+#: src/fsearch_window_actions.c:152
+msgid "Deleting files…"
+msgstr "Eliminando archivos…"
+
+#: src/fsearch_window_actions.c:152
+msgid "Moving files to trash…"
+msgstr "Enviando archivos a la papelera…"
+
+#: src/listview.c:178 src/menus.ui:212
+msgid "Name"
+msgstr "Nombre"
+
+#: src/listview.c:230 src/menus.ui:224
+msgid "Size"
+msgstr "Tamaño"
+
+#: src/listview.c:248 src/menus.ui:228
+msgid "Date Modified"
+msgstr "Fecha de modificación"
+
+#: src/listview.c:265 src/menus.ui:220
+msgid "Type"
+msgstr "Tipo"
+
+#: src/menus.ui:6
+msgid "_File"
+msgstr "_Archivo"
+
+#: src/menus.ui:9
+msgid "New Window"
+msgstr "Ventana nueva"
+
+#: src/menus.ui:16 src/menus.ui:133
+msgid "_Open"
+msgstr "_Abrir"
+
+#: src/menus.ui:21
+msgid "Open Folder"
+msgstr "Abrir carpeta"
+
+#: src/menus.ui:29
+msgid "Update Database"
+msgstr "Actualizar base de datos"
+
+#: src/menus.ui:35
+msgid "Cancel Update"
+msgstr "Cancelar actualización"
+
+#: src/menus.ui:49
+msgid "_Edit"
+msgstr "_Editar"
+
+#: src/menus.ui:52 src/menus.ui:169
+msgid "_Copy"
+msgstr "_Copiar"
+
+#: src/menus.ui:57 src/menus.ui:180
+msgid "Cu_t"
+msgstr "Cor_tar"
+
+#: src/menus.ui:64
+msgid "Select All"
+msgstr "Seleccionar todo"
+
+#: src/menus.ui:69
+msgid "Deselect All"
+msgstr "Desmarcar todo"
+
+#: src/menus.ui:73
+msgid "Invert Selection"
+msgstr "Invertir selección"
+
+#: src/menus.ui:86
+msgid "_View"
+msgstr "_Ver"
+
+#: src/menus.ui:103
+msgid "_Search"
+msgstr "_Buscar"
+
+#: src/menus.ui:120
+msgid "_Help"
+msgstr "Ay_uda"
+
+#: src/menus.ui:139
+msgid "Open _With"
+msgstr "Abrir _con"
+
+#: src/menus.ui:153
+msgid "_Open Folder"
+msgstr "_Abrir carpeta"
+
+#: src/menus.ui:175
+msgid "_Copy Filepath"
+msgstr "_Copiar ruta de archivo"
+
+#: src/menus.ui:188
+msgid "Move to _Trash"
+msgstr "Enviar a la _papelera"
+
+#: src/menus.ui:194
+msgid "_Delete"
+msgstr "_Eliminar"
+
+#: src/overlay.ui:31
+msgid "Empty Database"
+msgstr "Base de datos vacía"
+
+#: src/overlay.ui:46
+msgid "Go to <b>Edit → Preferences → Database</b> and add some locations"
+msgstr ""
+"Vaya a <b>Editar ▸ Preferencias ▸ Base de datos</b> y añada algunas "
+"ubicaciones"
+
+#: src/overlay.ui:87
+msgid "Empty Query"
+msgstr "Consulta vacía"
+
+#: src/overlay.ui:102
+msgid "Press <b>Ctrl + F</b> and start typing"
+msgstr "Oprima <b>Ctrl + F</b> y comience a escribir"
+
+#: src/overlay.ui:158 src/overlay.ui:228
+msgid "…"
+msgstr "…"
+
+#: src/overlay.ui:173
+msgid "This won't take long."
+msgstr "Esto no llevará mucho tiempo."
+
+#: src/overlay.ui:243
+msgid "This may take a while."
+msgstr "Esto puede demorar un rato."
+
+#: src/overlay.ui:283
+msgid "No Results Found"
+msgstr "No se encontraron resultados"
+
+#: src/overlay.ui:298
+msgid "Try a different search"
+msgstr "Pruebe una búsqueda distinta"
+
+#: src/preferences.ui:105
 msgid "Enable dark theme"
-msgstr "Habilitar tema oscuro"
+msgstr "Activar tema oscuro"
 
-#: ../src/preferences.ui.h:3
-msgid "Show tooltips"
-msgstr "Mostrar ayudas emergentes"
+#: src/preferences.ui:119
+msgid "Enable client-side decorations (requires restart)"
+msgstr "Habilitar Client Side Decoration (requiere reinicio)"
 
-#: ../src/preferences.ui.h:4
+#: src/preferences.ui:133
+msgid "Use binary units instead of decimal units"
+msgstr "Utilizar unidades binarias en lugar de decimales"
+
+#: src/preferences.ui:148
 msgid "Remember window size"
-msgstr "Recordar tamaño de la ventana "
+msgstr "Recordar tamaño de la ventana"
 
-#: ../src/preferences.ui.h:5
-msgid "Remember column configuration"
-msgstr "Recordar la configuración de la columna"
+#: src/preferences.ui:183
+msgid "with keyboard shortcuts or menu entries"
+msgstr "con atajos del teclado o entradas de menú"
 
-#: ../src/preferences.ui.h:6
+#: src/preferences.ui:198
+msgid "with double click"
+msgstr "con doble clic"
+
+#: src/preferences.ui:226
+msgid "Behaviour after successfully opening a file:"
+msgstr "Comportamiento tras abrir un archivo con éxito:"
+
+#: src/preferences.ui:242
+msgid "Nothing"
+msgstr "Nada"
+
+#: src/preferences.ui:243
+msgid "Minimize"
+msgstr "Minimizar"
+
+#: src/preferences.ui:244
+msgid "Close"
+msgstr "Cerrar"
+
+#: src/preferences.ui:270
+msgid "General:"
+msgstr "General:"
+
+#: src/preferences.ui:305
+msgid "Show highlighted search terms"
+msgstr "Mostrar términos de búsqueda resaltado"
+
+#: src/preferences.ui:320
+msgid "Show tooltips"
+msgstr "Mostrar descripciones emergentes"
+
+#: src/preferences.ui:334
 msgid "Show icons in name column"
-msgstr "Mostrar íconos en la columna Nombre"
+msgstr "Mostrar iconos en la columna Nombre"
 
-#: ../src/preferences.ui.h:7
+#: src/preferences.ui:348
+msgid "Remember column configuration"
+msgstr "Recordar configuración de columnas"
+
+#: src/preferences.ui:362
+msgid "Remember sort order"
+msgstr "Recuerde el orden de clasificación"
+
+#: src/preferences.ui:376
+msgid "Open path with double click in path column"
+msgstr "Abrir ruta con doble clic en la columna Ruta"
+
+#: src/preferences.ui:390
+msgid "Single click to open"
+msgstr "Abrir con un clic"
+
+#: src/preferences.ui:410
+msgid "Results:"
+msgstr "Resultados:"
+
+#: src/preferences.ui:451
+msgid "Show database indexing status"
+msgstr "Mostrar el estado del indexado de la base de datos"
+
+#: src/preferences.ui:471
+msgid "Statusbar:"
+msgstr "Barra de estado:"
+
+#: src/preferences.ui:512
+msgid "Show warning dialogs when:"
+msgstr "Mostrar advertencias cuando:"
+
+#: src/preferences.ui:522
+msgid "file / folder failed to open"
+msgstr "No se pudo abrir archivo / carpeta"
+
+#: src/preferences.ui:544
+msgid "Dialogs:"
+msgstr "Diálogos:"
+
+#: src/preferences.ui:569
 msgid "Interface"
 msgstr "Interfaz"
 
-#: ../src/preferences.ui.h:8
+#: src/preferences.ui:588
 msgid "Limit number of results:"
 msgstr "Limitar cantidad de resultados a:"
 
-#: ../src/preferences.ui.h:9
+#: src/preferences.ui:616
 msgid "Search in path when query contains path separators"
-msgstr "Buscar en el camino cuando la consulta tenga separadores de caminos"
+msgstr "Buscar en la ruta cuando la consulta tenga separadores de ruta"
 
-#: ../src/preferences.ui.h:10
+#: src/preferences.ui:630
 msgid "Search as you type"
 msgstr "Buscar mientras escribe"
 
-#: ../src/preferences.ui.h:11
+#: src/preferences.ui:644
 msgid "Hide results when search is empty"
-msgstr "Esconder resultados cuando la búsqueda está vacia"
+msgstr "Ocultar resultados cuando la búsqueda esté vacía"
 
-#: ../src/preferences.ui.h:13
+#: src/preferences.ui:658
+msgid "Match case when query contains at least one upper case character"
+msgstr ""
+"Coincidir mayúsculas y minúsculas cuando la consulta contiene al menos un "
+"carácter en mayúscula"
+
+#: src/preferences.ui:698
 msgid "Update database on start"
 msgstr "Actualizar base de datos al inicio"
 
-#: ../src/preferences.ui.h:14
-msgid "Add"
-msgstr "Añadir"
+#: src/preferences.ui:773
+msgid "Add path to be included in database"
+msgstr "Agregar ruta para ser incluido en la base de datos"
 
-#: ../src/preferences.ui.h:15
-msgid "Remove"
-msgstr "Eliminar"
+#: src/preferences.ui:790 src/preferences.ui:910
+msgid "Remove selected path"
+msgstr "Eliminar la ruta seleccionada"
 
-#: ../src/preferences.ui.h:16
-msgid "Follow symbolic links"
-msgstr "Seguir enlaces simbólicos"
-
-#: ../src/preferences.ui.h:17
+#: src/preferences.ui:822
 msgid "Include"
 msgstr "Incluir"
 
-#: ../src/preferences.ui.h:18
-msgid "Exclude hidden files and folders"
-msgstr "Excluir archivos y carpetas ocultas"
+#: src/preferences.ui:893
+msgid "Add path to be excluded from database"
+msgstr "Agregar ruta para ser excluida de la base de datos"
 
-#: ../src/preferences.ui.h:19
+#: src/preferences.ui:949 src/preferences.ui:962
+msgid "Supports wildcards. Multiple entries must be separated by ';'"
+msgstr "Admite comodines. Separe las entradas mediante «;»"
+
+#: src/preferences.ui:950
+msgid "Exclude files:"
+msgstr "Excluir archivos:"
+
+#: src/preferences.ui:963
+msgid "e.g. \".git;*.tmp\""
+msgstr "p. ej., «.git;*.tmp»"
+
+#: src/preferences.ui:980
+msgid "Exclude hidden files and folders"
+msgstr "Excluir archivos y carpetas ocultos"
+
+#: src/preferences.ui:1001
 msgid "Exclude"
 msgstr "Excluir"
 
-#: ../src/fsearch_window.c:100 ../src/fsearch_window.c:321
-#: ../src/fsearch_window.c:734
-#, c-format
-msgid "%'d Items"
-msgstr "%'d resultados"
+#: src/preferences.ui:1024
+msgid "Database"
+msgstr "Base de datos"
 
-#: ../src/fsearch_window.c:756
-#, c-format
-msgid "Loading Database..."
-msgstr "Cargando base de datos..."
+#: src/preferences.ui:1055
+msgid ""
+"<b>Enable dark theme:</b>\n"
+"\n"
+"If enabled, the system theme is asked to use a darker styling for the "
+"application <i>(i.e. dark UI elements on bright text)</i>.\n"
+"\n"
+"Note that not all system themes provide such a darker variant, therefore "
+"enabling this setting might not have an effect."
+msgstr ""
+"<b>Activar tema oscuro:</b>\n"
+"\n"
+"Si está habilitado, se pide al tema del sistema que utilice un estilo más "
+"oscuro para la aplicación <i>(es decir, elementos de interfaz de usuario "
+"oscuros en texto brillante)</i>.\n"
+"\n"
+"Tenga en cuenta que no todos los temas del sistema proporcionan una variante "
+"más oscura, por lo que habilitar esta configuración podría no tener efecto."
+
+#: src/preferences.ui:1072
+msgid ""
+"<b>Enable client-side decorations:</b>\n"
+"\n"
+"If enabled, the search entry and main menu are displayed in the window title "
+"bar.\n"
+"\n"
+"If disabled, the main menu is displayed as a menu bar with the search entry "
+"below it.\n"
+"This resembles a more traditonal UI layout and takes a little bit more space."
+msgstr ""
+"<b>Habilitar Client Side Decorations:</b>\n"
+"\n"
+"Si está activada, la entrada de búsqueda y el menú principal se muestran en "
+"la barra de título de la ventana.\n"
+"\n"
+"Si está desactivado, el menú principal se muestra como una barra de menús "
+"con la entrada de búsqueda debajo de él.\n"
+"Esto se asemeja a un diseño de interfaz de usuario más traditonal y toma un "
+"poco más de espacio."
+
+#: src/preferences.ui:1091
+msgid ""
+"<b>Use binary units instead of decimal units:</b>\n"
+"\n"
+"This settings controls how file sizes are displayed.\n"
+"\n"
+"\t• <b>Binary units:</b> This refers to binary IEC prefixes <i>(e.g. 1 KiB = "
+"1024 bytes)</i>\n"
+"\t• <b>Decimal  units:</b> This refers to decimal SI prefixes <i>(e.g. 1 kB "
+"= 1000 bytes)</i>"
+msgstr ""
+"<b>Utilizar unidades binarias en lugar de unidades decimales:</b>\n"
+"\n"
+"Esta configuración controla cómo se muestran los tamaños de archivo.\n"
+"\n"
+"\t• <b>Unidades binarias:</b> Esto se refiere a los prefijos binarios <i>(p. "
+"ej. 1 KiB = 1024 bytes)</i>\n"
+"\t• <b>Unidades decimales:</b> Esto se refiere a los prefijos del SI <i>(p. "
+"ej. 1 kB = 1000 bytes)</i>"
+
+#: src/preferences.ui:1102
+msgid "page2"
+msgstr "Página 2"
+
+#: src/preferences.ui:1110
+msgid ""
+"<b>Remember window size:</b>\n"
+"\n"
+"If enabled, the window size from the previous session will be restored when "
+"you open an FSearch window.\n"
+"\n"
+"Note that some window managers ignore this request and force the window to "
+"have a different size."
+msgstr ""
+"<b>Recordar tamaño de la ventana:</b>\n"
+"\n"
+"Si está habilitado, el tamaño de la ventana de la sesión anterior se "
+"restaurará al abrir una ventana de FSearch.\n"
+"\n"
+"Tenga en cuenta que algunos administradores de ventanas ignoran esta "
+"solicitud y fuerzan la ventana a tener un tamaño diferente."
+
+#: src/preferences.ui:1120
+msgid "page3"
+msgstr "Página 3"
+
+#: src/preferences.ui:1128
+msgid ""
+"<b>Behaviour after successfully opening a file:</b>\n"
+"\n"
+"When a file/folder was succesfully opened one of the following actions can "
+"be performed:\n"
+"\n"
+"\t• <b>Nothing:</b> Nothing happens.\n"
+"\t• <b>Minimize:</b> The currently selected FSearch window becomes "
+"minimized. \n"
+"\t\tNote that not all systems allow windows to be minimized.\n"
+"\t• <b>Close:</b> Quit FSearch.\n"
+"\n"
+"You can configure if those actions should be triggered when the file was "
+"opened with\n"
+"\n"
+"\t• <b>keyboard shortcuts or menu entries</b> and/or\n"
+"\t• <b>mouse click</b>"
+msgstr ""
+"<b>Comportamiento después de abrir correctamente un archivo:</b>\n"
+"\n"
+"Cuando se abre correctamente un archivo/carpeta, se puede realizar una de "
+"las siguientes acciones:\n"
+"\n"
+"\t• <b>Nada:</b> No sucede nada.\n"
+"\t• <b>Minimizar:</b> La ventana de FSearch actualmente seleccionada se "
+"minimiza.\n"
+"\t\tTenga en cuenta que no todos los sistemas permiten minimizar las "
+"ventanas.\n"
+"\t• <b>Cerrar:</b> Salir de FSearch.\n"
+"\n"
+"Puede configurar si esas acciones deben activarse cuando se abrie el archivo "
+"con\n"
+"\n"
+"\t• <b>atajos de teclado o entradas de menú</b> y/o\n"
+"\t• <b>clic del ratón</b>"
+
+#: src/preferences.ui:1146
+msgid "page4"
+msgstr "Página 4"
+
+#: src/preferences.ui:1154
+msgid ""
+"<b>Show highlighted search terms:</b>\n"
+"\n"
+"If enabled, the search terms will be highlighted in the results view. For "
+"example when you search for \"foo\" all appearances of <i>foo</i> in file/"
+"folder names will be highlighted with bold characters:\n"
+"\n"
+"\t\t<b>foo</b>bar.txt\n"
+"\t\tfile.<b>foo</b>\n"
+"\n"
+"This also works for regular expressions and wildcard expressions starting or "
+"ending with an asterisk. "
+msgstr ""
+"<b>Mostrar términos de búsqueda resaltado:</b>\n"
+"\n"
+"Si está habilitado, los términos de búsqueda se resaltarán en la vista de "
+"resultados. Por ejemplo, al buscar \"fu\" todas las apariciones de <i>fu</i> "
+"en los nombres de archivos/carpetas se resaltarán con caracteres en negrita:"
+"\n"
+"\n"
+"\t\t<b>fu</b>lano.txt\n"
+"\t\tarchivo.<b>fu</b>\n"
+"\n"
+"Esto también funciona para expresiones regulares y expresiones comodín que "
+"comienzan o terminan con un asterisco. "
+
+#: src/preferences.ui:1167
+msgid "page5"
+msgstr "Página 5"
+
+#: src/preferences.ui:1175
+msgid ""
+"<b>Show tooltips:</b>\n"
+"\n"
+"If enabled, the results view will show the full path of the focused file/"
+"folder in a small tooltip window."
+msgstr ""
+"<b>Mostrar descripciones emergentes:</b>\n"
+"\n"
+"Si está habilitada, la vista de resultados mostrará la ruta de acceso "
+"completa del archivo/carpeta enfocado en una pequeña ventana de información "
+"emergente."
+
+#: src/preferences.ui:1183
+msgid "page6"
+msgstr "Página 6"
+
+#: src/preferences.ui:1191
+msgid ""
+"<b>Show icons in name column:</b>\n"
+"\n"
+"If enabled, file/folder icons will be shown in the name column."
+msgstr ""
+"<b>Mostrar iconos en la columna Nombre:</b>\n"
+"\n"
+"Si está habilitado, los iconos de archivos/carpetas se mostrarán en la "
+"columna Nombre."
+
+#: src/preferences.ui:1199
+msgid "page7"
+msgstr "Página 7"
+
+#: src/preferences.ui:1207
+msgid ""
+"<b>Remember column configuration:</b>\n"
+"\n"
+"If enabled, the column configuration of the results view from the previous "
+"session will be restored when you open an FSearch window. This includes the "
+"size and visibility of all columns."
+msgstr ""
+"<b>Recordar configuración de columnas:</b>\n"
+"\n"
+"Si está habilitada, la configuración de columnas de la vista de resultados "
+"de la sesión anterior se restaurará al abrir una ventana de FSearch. Esto "
+"incluye el tamaño y la visibilidad de todas las columnas."
+
+#: src/preferences.ui:1215
+msgid "page8"
+msgstr "Página 8"
+
+#: src/preferences.ui:1223
+msgid ""
+"<b>Remember sort order:</b>\n"
+"\n"
+"If enabled, the sort order of the results view from the previous session "
+"will be restored when you open an FSearch window."
+msgstr ""
+"<b>Recuerde el orden de clasificación:</b>\n"
+"\n"
+"Si está habilitada, el ordenamiento de la vista de resultados de la sesión "
+"anterior se restaurará cuando abra una nueva ventanda de FSearch."
+
+#: src/preferences.ui:1231
+msgid "page9"
+msgstr "Página 9"
+
+#: src/preferences.ui:1239
+msgid ""
+"<b>Open path with double click in path column:</b>\n"
+"\n"
+"If enabled, double clicking in the path column will open the selected path."
+msgstr ""
+"<b>Abrir ruta con doble clic en la columna Ruta:</b>\n"
+"\n"
+"Si está habilitado, al hacer doble clic en la columna de ruta se abrirá la "
+"ruta seleccionada."
+
+#: src/preferences.ui:1247
+msgid "page10"
+msgstr "Página 10"
+
+#: src/preferences.ui:1255
+msgid ""
+"<b>Single click to open:</b>\n"
+"\n"
+"If enabled, a single click will open the selected file/folder. If you only "
+"want to select a file/folder while this setting is active, you need to a "
+"hold <i>Ctrl</i> at the same time while clicking the file/folder."
+msgstr ""
+"<b>Abrir con un clic:</b>\n"
+"\n"
+"Si está habilitado, un solo clic abrirá el archivo/carpeta seleccionado. Si "
+"solo desea seleccionar un archivo/carpeta mientras esta configuración está "
+"activa, debe mantener presionada la tecla <i>Ctrl</i> al mismo tiempo "
+"mientras hace clic en el archivo/carpeta."
+
+#: src/preferences.ui:1263
+msgid "page11"
+msgstr "Página 11"
+
+#: src/preferences.ui:1271
+msgid ""
+"<b>Show database indexing status:</b>\n"
+"\n"
+"If enabled, the path that is currently being indexed is displayed in the "
+"statusbar."
+msgstr ""
+"<b>Mostrar el estado del indexado de la base de datos:</b>\n"
+"\n"
+"Si está habilitada, la ruta de acceso que se está indexando actualmente se "
+"muestra en la barra de estado."
+
+#: src/preferences.ui:1279
+msgid "page12"
+msgstr "Página 12"
+
+#: src/preferences.ui:1287
+msgid ""
+"<b>Show warning dialogs:</b>\n"
+"\n"
+"If enabled, a warning dialog is displayed when:\n"
+"\n"
+"\t•  a file or folder failed to open\n"
+msgstr ""
+"<b>Mostrar advertencias:</b>\n"
+"\n"
+"Si está habilitado, se mostrará un cuadro de diálogo de advertencia cuando:\n"
+"\n"
+"\t•  un archivo o carpeta no se pudo abrir\n"
+
+#: src/preferences.ui:1298
+msgid "page13"
+msgstr "Página 13"
+
+#: src/preferences.ui:1306
+msgid ""
+"<b>Search in path when query contains path separators:</b>\n"
+"\n"
+"If enabled, search terms containing path separators (i.e. \"/\") will be "
+"automatically matched against the full path of a file or folder."
+msgstr ""
+"<b>Buscar en la ruta cuando la consulta tenga separadores de ruta:</b>\n"
+"\n"
+"Si está habilitado, los términos de búsqueda que contienen separadores de "
+"ruta (p. ej. \"/\") se compararán automáticamente con la ruta completa de un "
+"archivo o carpeta."
+
+#: src/preferences.ui:1314
+msgid "page14"
+msgstr "Página 14"
+
+#: src/preferences.ui:1322
+msgid ""
+"<b>Match case when query contains at least one upper case character:</b>\n"
+"\n"
+"If enabled, search terms containing at least one upper case character will "
+"trigger a case-sensitive search. This means a search term like <i>Foo</i> "
+"will match <i>FooBar.txt</i> but not <i>foobar.txt</i>."
+msgstr ""
+"<b>Coincidir mayúsculas y minúsculas cuando la consulta contiene al menos un "
+"carácter en mayúsculas:</b>\n"
+"\n"
+"Si está habilitado, los términos de búsqueda que contengan al menos un "
+"carácter en mayúscula provocará una búsqueda sensible a mayúsculas y "
+"minúsculas. Esto significa que un término de búsqueda como <i>Fu</i> "
+"coincidirá con <i>Fulano.txt</i> pero no <i>fulano.txt</i>."
+
+#: src/preferences.ui:1330
+msgid "page15"
+msgstr "Página 15"
+
+#: src/preferences.ui:1338
+msgid ""
+"<b>Hide results when search is empty:</b>\n"
+"\n"
+"If enabled, no search results are displayed when the search entry is empty.\n"
+"\n"
+"If disabled, all files and folders will be displayed when the search entry "
+"is empty."
+msgstr ""
+"<b>Ocultar resultados cuando la búsqueda esté vacía:</b>\n"
+"\n"
+"Si está habilitado, no se muestra ningún resultado de búsqueda cuando la "
+"entrada de búsqueda esté vacía.\n"
+"\n"
+"Si está deshabilitada, todos los archivos y carpetas se mostrarán cuando la "
+"entrada de búsqueda esté vacía."
+
+#: src/preferences.ui:1348
+msgid "page16"
+msgstr "Página 16"
+
+#: src/preferences.ui:1356
+msgid ""
+"<b>Search as you type:</b>\n"
+"\n"
+"If enabled, the search is automatically updated with every keystroke.\n"
+"\n"
+"If disabled, the search is only updated when you hit <i>Enter</i> or press "
+"the search button. "
+msgstr ""
+"<b>Buscar mientras escribe:</b>\n"
+"\n"
+"Si está habilitado, la búsqueda se actualiza automáticamente con cada "
+"pulsación de tecla.\n"
+"\n"
+"Si está deshabilitada, la búsqueda solo se actualiza cuando presiona <i> "
+"Enter </i> o presiona el botón de búsqueda. "
+
+#: src/preferences.ui:1366
+msgid "page17"
+msgstr "Página 17"
+
+#: src/preferences.ui:1374
+msgid ""
+"<b>Limit number of results:</b>\n"
+"\n"
+"If enabled, the number of search results will be limited to the specified "
+"number.\n"
+"\n"
+"Displaying lots of results has a significant performance impact, especially "
+"when the list isn't sorted by name. This will be improved in future versions."
+msgstr ""
+"<b>Limitar cantidad de resultados a:</b>\n"
+"\n"
+"Si está habilitado, el número de resultados de búsqueda se limitará al "
+"número especificado.\n"
+"\n"
+"Mostrar muchos resultados tiene un impacto significativo en el rendimiento, "
+"especialmente cuando la lista no está ordenada por nombre. Esto se mejorará "
+"en futuras versiones."
+
+#: src/preferences.ui:1384
+msgid "page18"
+msgstr "Página 18"
+
+#: src/preferences.ui:1392
+msgid ""
+"<b>Update database on start:</b>\n"
+"\n"
+"If enabled, the database will be updated automatically in the background "
+"when you start FSearch."
+msgstr ""
+"<b>Actualizar base de datos al inicio:</b>\n"
+"\n"
+"Si está habilitada, la base de datos se actualizará automáticamente en "
+"segundo plano al iniciar FSearch."
+
+#: src/preferences.ui:1400
+msgid "page19"
+msgstr "Página 19"
+
+#: src/preferences.ui:1408
+msgid ""
+"<b>Included folders:</b>\n"
+"\n"
+"This list contains all folders you want to include in the database.\n"
+"\n"
+"\t• <b>Active:</b> If enabled, the path will included in the database to be "
+"searched in.\n"
+"\t• <b>Path:</b> The full path to be included.\n"
+"\t• <b>Update:</b> This setting is useful if you want to exclude certain "
+"paths from being\n"
+"\t\t\tupdated <i>(e.g. a path to a slow USB drive which doesn't change "
+"often)</i>"
+msgstr ""
+"<b>Carpetas incluidas:</b>\n"
+"\n"
+"Esta lista contiene todas las carpetas que desea incluir en la base de datos."
+"\n"
+"\n"
+"\t• <b>Activo:</b> Si está habilitada, la ruta de acceso se incluirá en la "
+"base de datos en la que se buscará.\n"
+"\t• <b>Ruta:</b> La ruta completa que se incluirá.\n"
+"\t• <b>Actualizar:</b> Esta configuración es útil si desea excluir ciertas "
+"rutas de acceso de \n"
+"\t\t\tla actualización <i>(p. ej. una ruta a una unidad USB lenta que no "
+"cambia a menudo)</i>"
+
+#: src/preferences.ui:1421
+msgid "page20"
+msgstr "Página 20"
+
+#: src/preferences.ui:1429
+msgid ""
+"<b>Add folder to database:</b>\n"
+"\n"
+"This button opens a dialog where you can select a folder you want to include "
+"in the database for searching."
+msgstr ""
+"<b>Añadir carpeta a la base de datos:</b>\n"
+"\n"
+"Este botón abre un cuadro de diálogo donde puede seleccionar la carpeta que "
+"desea incluir en la base de datos para realizar búsquedas."
+
+#: src/preferences.ui:1437
+msgid "page21"
+msgstr "Página 21"
+
+#: src/preferences.ui:1445
+msgid ""
+"<b>Remove selected row:</b>\n"
+"\n"
+"This removes the selected folder from the list of included folders."
+msgstr ""
+"<b>Eliminar la fila seleccionada:</b>\n"
+"\n"
+"Esto elimina la carpeta seleccionada de la lista de carpetas incluidas."
+
+#: src/preferences.ui:1453
+msgid "page22"
+msgstr "Página 22"
+
+#: src/preferences.ui:1461
+msgid ""
+"<b>Excluded folders:</b>\n"
+"\n"
+"This list contains all folders you want to exclude from the database.\n"
+"\n"
+"\t• <b>Active:</b> If enabled, the path will excluded from the database\n"
+"\t\t and can't be searched in.\n"
+"\t• <b>Path:</b> The full path to be excluded."
+msgstr ""
+"<b>Carpetas excluidas:</b>\n"
+"\n"
+"Esta lista contiene todas las carpetas que desea excluir de la base de datos."
+"\n"
+"\n"
+"\t• <b>Activo:</b> Si está habilitada, la ruta de acceso se excluirá de la "
+"base de datos\n"
+"\t\t y no se podrá buscar en ella.\n"
+"\t• <b>Ruta:</b> La ruta completa para ser excluida."
+
+#: src/preferences.ui:1473
+msgid "page23"
+msgstr "Página 23"
+
+#: src/preferences.ui:1481
+msgid ""
+"<b>Exclude folder from database:</b>\n"
+"\n"
+"This button opens a dialog where you can select a folder you want to exclude "
+"from the database."
+msgstr ""
+"<b>Excluir carpeta de la base de datos:</b>\n"
+"\n"
+"Este botón abre un cuadro de diálogo donde puede seleccionar una carpeta que "
+"desea excluir de la base de datos."
+
+#: src/preferences.ui:1489
+msgid "page24"
+msgstr "Página 24"
+
+#: src/preferences.ui:1497
+msgid ""
+"<b>Remove selected row:</b>\n"
+"\n"
+"This removes the selected folder from the list of excluded folders."
+msgstr ""
+"<b>Eliminar la fila seleccionada:</b>\n"
+"\n"
+"Esto elimina la carpeta seleccionada de la lista de carpetas excluidas."
+
+#: src/preferences.ui:1505
+msgid "page25"
+msgstr "Página 25"
+
+#: src/preferences.ui:1513
+msgid ""
+"<b>Exclude files and folders from database:</b>\n"
+"\n"
+"This is a semi-colon separated list of files (or folders) you want to "
+"exclude from the database. For example <i>.git;.cache;*.swp</i> will exclude "
+"all files or folders which are called either <i>.git</i> or <i>.cache</i> or "
+"end with <i>.swp</i>."
+msgstr ""
+"<b>Excluir archivos y carpetas de la base de datos:</b>\n"
+"\n"
+"Se trata de una lista separada por punto y coma de los archivos (o carpetas) "
+"que desea excluir de la base de datos. Por ejemplo <i>.git;.cache;*.swp</i> "
+"excluirá todos los archivos o carpetas que se llaman <i>.git</i> o <i>."
+"cache</i> o terminan con <i>.swp</i>."
+
+#: src/preferences.ui:1521
+msgid "page26"
+msgstr "Página 26"
+
+#: src/preferences.ui:1529
+msgid ""
+"<b>Exclude hidden files and folders:</b>\n"
+"\n"
+"If enabled, hidden files and folders will be excluded from the database "
+"<i>(i.e. all files or folders which start with a dot character)</i>."
+msgstr ""
+"<b>Excluir archivos y carpetas ocultos:</b>\n"
+"\n"
+"Si está habilitado, los archivos y carpetas ocultos se excluirán de la base "
+"de datos. <i>(es decir, todos los archivos o carpetas que comienzan con un "
+"carácter de punto).</i>."
+
+#: src/preferences.ui:1537
+msgid "page27"
+msgstr "Página 27"
+
+#: src/preferences.ui:1545
+msgid "Focus a setting to get a detailed description of what it does."
+msgstr ""
+"Enfoque una configuración para obtener una descripción detallada de lo que "
+"hace."
+
+#: src/preferences.ui:1549
+msgid "page28"
+msgstr "Página 28"
+
+#: src/preferences.ui:1557
+msgid "label"
+msgstr "etiqueta"
+
+#: src/preferences.ui:1561
+msgid "page29"
+msgstr "Página 29"
+
+#: src/preferences.ui:1571
+msgid "Help"
+msgstr "Ayuda"
+
+#: src/preferences_ui.c:57 src/preferences_ui.c:69
+msgid "Select folder"
+msgstr "Seleccione la carpeta"
+
+#: src/preferences_ui.c:60 src/preferences_ui.c:69 src/preferences_ui.c:175
+msgid "_Cancel"
+msgstr "Cancelar"
+
+#: src/preferences_ui.c:62 src/preferences_ui.c:69
+msgid "_Select"
+msgstr "Seleccionar"
+
+#: src/preferences_ui.c:176
+msgid "_OK"
+msgstr "_Sí"
+
+#: data/fsearch.desktop.in.in:5
+msgid "FSearch"
+msgstr "FSearch"
+
+#: data/fsearch.desktop.in.in:6
+msgid "A file search application focusing on performance and advanced features"
+msgstr ""
+"Herramienta de búsqueda centrada en la velocidad y con prestaciones avanzadas"
+
+#: data/fsearch.desktop.in.in:7
+msgid "system-search"
+msgstr "system-search"
+
+#: data/fsearch.desktop.in.in:11
+msgid ""
+"search;fsearch;files;folders;music;video;documents;find;tool;everything;"
+msgstr ""
+"buscar;fsearch;archivos;carpetas;música;video;documentos;encontrar;"
+"herramienta;todo;"
+
+#~ msgid "Copy"
+#~ msgstr "Copiar"
+
+#~ msgid ""
+#~ "<b>Enable dark theme</b> might not have an effect.\n"
+#~ "Some platforms don't support dark theming and others always use dark "
+#~ "themes by default."
+#~ msgstr ""
+#~ "<b>Habilitar tema oscuro</b> podría no tener efecto.\n"
+#~ "Algunas plataformas no admiten temas oscuros y otras siempre usan temas "
+#~ "oscuros de forma predeterminada."
+
+#~ msgid "Add…"
+#~ msgstr "Agregar…"
+
+#~ msgid "Remove"
+#~ msgstr "Quitar"
+
+#~ msgid "Follow symbolic links"
+#~ msgstr "Seguir enlaces simbólicos"
+
+#~ msgid ""
+#~ "INFO: \"Enable dark theme\" might not have an effect,\n"
+#~ "since not every GTK+ theme provides a dark version."
+#~ msgstr ""
+#~ "Nota: «Activar tema oscuro» puede no funcionar,\n"
+#~ "ya que no todos los temas GTK+ incluyen una versión oscura."
+
+#~ msgid "Enable menubar"
+#~ msgstr "Activar barra de menú"
+
+#~ msgid ""
+#~ "INFO: Enabling/Disabling the menubar takes effect after restarting "
+#~ "FSearch.\n"
+#~ msgstr ""
+#~ "INFO: Activar/Desactivar la barra de menú aplicará en el próximo reinicio "
+#~ "del programa\n"
+
+#~ msgid "Open File(s)"
+#~ msgstr "Abrir archivo(s)"
+
+#~ msgid "Open With Other Application"
+#~ msgstr "Abrir con otra aplicación"
+
+#~ msgid "Open Containing Folder"
+#~ msgstr "Abrir carpeta contenedora"
+
+#~ msgid "Open File(s) in File Manager"
+#~ msgstr "Abrir archivo(s) en el explorador"
+
+#~ msgid "Move to Trash"
+#~ msgstr "Enviar a la papelera"
+
+#~ msgid "Show Menubar"
+#~ msgstr "Mostrar barra de menús"
+
+#, fuzzy
+#~ msgid "Enable"
+#~ msgstr "Activar expresiones regulares"
+
+#, fuzzy
+#~| msgid "Loading Database…"
+#~ msgid "Loading Database..."
+#~ msgstr "Cargando base de datos…"
+
+#~ msgid "..."
+#~ msgstr "…"
+
+#~ msgid "Updating Database..."
+#~ msgstr "Actualizando base de datos…"
+
+#~ msgid "Search..."
+#~ msgstr "Buscar…"
+
+#~ msgid "Add"
+#~ msgstr "Añadir"
+
+#~ msgid "files?"
+#~ msgstr "¿archivos?"
+
+#~ msgid "Other Application"
+#~ msgstr "Otra aplicación"
+
+#~ msgid "C_ut"
+#~ msgstr "C_ortar"
+
+#~ msgid "Selected Folder and Files"
+#~ msgstr "Seleccionar carpetas y archivos"

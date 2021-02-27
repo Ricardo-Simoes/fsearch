@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,14 +18,20 @@
 
 #pragma once
 
+#include <glib.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <glib.h>
 
 typedef struct _FsearchConfig FsearchConfig;
 
-struct _FsearchConfig
-{
+typedef enum FsearchConfigActionAfterOpen {
+    ACTION_AFTER_OPEN_NOTHING = 0,
+    ACTION_AFTER_OPEN_MINIMIZE,
+    ACTION_AFTER_OPEN_CLOSE,
+    N_ACTIONS_AFTER_OPEN,
+} FsearchConfigActionAfterOpen;
+
+struct _FsearchConfig {
     // Search
     bool limit_results;
     bool hide_results_on_empty_search;
@@ -33,7 +39,12 @@ struct _FsearchConfig
     bool enable_regex;
     bool match_case;
     bool auto_search_in_path;
+    bool auto_match_case;
     bool search_as_you_type;
+    bool show_base_2_units;
+
+    // Applications
+    char *folder_open_cmd;
 
     // Window
     bool restore_window_size;
@@ -41,9 +52,20 @@ struct _FsearchConfig
     int32_t window_height;
 
     // Interface
+    bool highlight_search_terms;
+    bool single_click_open;
     bool enable_dark_theme;
     bool enable_list_tooltips;
     bool restore_column_config;
+    bool restore_sort_order;
+    bool double_click_path;
+    FsearchConfigActionAfterOpen action_after_file_open;
+    bool action_after_file_open_keyboard;
+    bool action_after_file_open_mouse;
+    bool show_indexing_status;
+
+    // Warning Dialogs
+    bool show_dialog_failed_opening;
 
     // View menu
     bool show_menubar;
@@ -57,6 +79,9 @@ struct _FsearchConfig
     bool show_type_column;
     bool show_size_column;
     bool show_modified_column;
+
+    char *sort_by;
+    bool sort_ascending;
 
     uint32_t name_column_width;
     uint32_t path_column_width;
@@ -79,23 +104,29 @@ struct _FsearchConfig
 
     GList *locations;
     GList *exclude_locations;
+    char **exclude_files;
 };
 
+bool
+config_make_dir(void);
 
 bool
-make_config_dir (void);
+config_load(FsearchConfig *config);
 
 bool
-load_config (FsearchConfig *config);
+config_load_default(FsearchConfig *config);
 
 bool
-load_default_config (FsearchConfig *config);
-
-bool
-save_config (FsearchConfig *config);
+config_save(FsearchConfig *config);
 
 void
-build_config_dir (char *path, size_t len);
+config_build_dir(char *path, size_t len);
+
+bool
+config_cmp(FsearchConfig *c1, FsearchConfig *c2);
+
+FsearchConfig *
+config_copy(FsearchConfig *config);
 
 void
-config_free (FsearchConfig *config);
+config_free(FsearchConfig *config);

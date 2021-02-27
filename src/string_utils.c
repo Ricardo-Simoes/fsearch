@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,207 +16,197 @@
    along with this program; if not, see <http://www.gnu.org/licenses/>.
    */
 
-#define _GNU_SOURCE
-#include <stdlib.h>
-#include <ctype.h>
-#include <stdint.h>
-#include <string.h>
 #include "string_utils.h"
+#include <assert.h>
+#include <ctype.h>
+#include <glib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
 
-// strstr implementation based on musl lib
-static char *
-twobyte_strstr(const unsigned char *h, const unsigned char *n)
-{
-    uint16_t nw = n[0]<<8 | n[1], hw = h[0]<<8 | h[1];
-    for (h++; *h && hw != nw; hw = hw<<8 | *++h);
-    return *h ? (char *)h-1 : 0;
-}
-
-static char *
-threebyte_strstr(const unsigned char *h, const unsigned char *n)
-{
-    uint32_t nw = n[0]<<24 | n[1]<<16 | n[2]<<8;
-    uint32_t hw = h[0]<<24 | h[1]<<16 | h[2]<<8;
-    for (h+=2; *h && hw != nw; hw = (hw|*++h)<<8);
-    return *h ? (char *)h-2 : 0;
-}
-
-static char *
-fourbyte_strstr(const unsigned char *h, const unsigned char *n)
-{
-    uint32_t nw = n[0]<<24 | n[1]<<16 | n[2]<<8 | n[3];
-    uint32_t hw = h[0]<<24 | h[1]<<16 | h[2]<<8 | h[3];
-    for (h+=3; *h && hw != nw; hw = hw<<8 | *++h);
-    return *h ? (char *)h-3 : 0;
-}
-
-#define MAX(a,b) ((a)>(b)?(a):(b))
-#define MIN(a,b) ((a)<(b)?(a):(b))
-
-#define BITOP(a,b,op) \
-    ((a)[(size_t)(b)/(8*sizeof *(a))] op (size_t)1<<((size_t)(b)%(8*sizeof *(a))))
-
-static char *
-twoway_strstr(const unsigned char *h, const unsigned char *n)
-{
-    const unsigned char *z;
-    size_t l, ip, jp, k, p, ms, p0, mem, mem0;
-    size_t byteset[32 / sizeof(size_t)] = { 0 };
-    size_t shift[256];
-
-    /* Computing length of needle and fill shift table */
-    for (l=0; n[l] && h[l]; l++)
-        BITOP(byteset, n[l], |=), shift[n[l]] = l+1;
-    if (n[l]) return 0; /* hit the end of h */
-
-    /* Compute maximal suffix */
-    ip = -1; jp = 0; k = p = 1;
-    while (jp+k<l) {
-        if (n[ip+k] == n[jp+k]) {
-            if (k == p) {
-                jp += p;
-                k = 1;
-            } else k++;
-        } else if (n[ip+k] > n[jp+k]) {
-            jp += k;
-            k = 1;
-            p = jp - ip;
-        } else {
-            ip = jp++;
-            k = p = 1;
+bool
+fs_str_is_empty(const char *str) {
+    // query is considered empty if:
+    // - fist character is null terminator
+    // - or it has only space characters
+    while (*str != '\0') {
+        if (!isspace(*str)) {
+            return false;
         }
+        str++;
     }
-    ms = ip;
-    p0 = p;
-
-    /* And with the opposite comparison */
-    ip = -1; jp = 0; k = p = 1;
-    while (jp+k<l) {
-        if (n[ip+k] == n[jp+k]) {
-            if (k == p) {
-                jp += p;
-                k = 1;
-            } else k++;
-        } else if (n[ip+k] < n[jp+k]) {
-            jp += k;
-            k = 1;
-            p = jp - ip;
-        } else {
-            ip = jp++;
-            k = p = 1;
-        }
-    }
-    if (ip+1 > ms+1) ms = ip;
-    else p = p0;
-
-    /* Periodic needle? */
-    if (memcmp(n, n+p, ms+1)) {
-        mem0 = 0;
-        p = MAX(ms, l-ms-1) + 1;
-    } else mem0 = l-p;
-    mem = 0;
-
-    /* Initialize incremental end-of-haystack pointer */
-    z = h;
-
-    /* Search loop */
-    for (;;) {
-        /* Update incremental end-of-haystack pointer */
-        if (z-h < l) {
-            /* Fast estimate for MIN(l,63) */
-            size_t grow = l | 63;
-            const unsigned char *z2 = memchr(z, 0, grow);
-            if (z2) {
-                z = z2;
-                if (z-h < l) return 0;
-            } else z += grow;
-        }
-
-        /* Check last byte first; advance by shift on mismatch */
-        if (BITOP(byteset, h[l-1], &)) {
-            k = l-shift[h[l-1]];
-            //printf("adv by %zu (on %c) at [%s] (%zu;l=%zu)\n", k, h[l-1], h, shift[h[l-1]], l);
-            if (k) {
-                if (mem0 && mem && k < p) k = l-p;
-                h += k;
-                mem = 0;
-                continue;
-            }
-        } else {
-            h += l;
-            mem = 0;
-            continue;
-        }
-
-        /* Compare right half */
-        for (k=MAX(ms+1,mem); n[k] && n[k] == h[k]; k++);
-        if (n[k]) {
-            h += k-ms;
-            mem = 0;
-            continue;
-        }
-        /* Compare left half */
-        for (k=ms+1; k>mem && n[k-1] == h[k-1]; k--);
-        if (k <= mem) return (char *)h;
-        h += p;
-        mem = mem0;
-    }
+    return true;
 }
 
-char *
-my_strstr (const char *h, const char *n)
-{
-    /* Return immediately on empty needle */
-    if (!n[0]) return (char *)h;
+bool
+fs_str_is_utf8(const char *str) {
+    char *normalized = g_utf8_normalize(str, -1, G_NORMALIZE_DEFAULT);
+    if (normalized == NULL) {
+        return false;
+    }
+    char *down = g_utf8_strdown(normalized, -1);
+    char *up = g_utf8_strup(normalized, -1);
 
-    /* Use faster algorithms for short needles */
-    h = strchr(h, *n);
-    if (!h || !n[1]) return (char *)h;
-    if (!h[1]) return 0;
-    if (!n[2]) return twobyte_strstr((void *)h, (void *)n);
-    if (!h[2]) return 0;
-    if (!n[3]) return threebyte_strstr((void *)h, (void *)n);
-    if (!h[3]) return 0;
-    if (!n[4]) return fourbyte_strstr((void *)h, (void *)n);
+    assert(down != NULL);
+    assert(up != NULL);
 
-    return twoway_strstr((void *)h, (void *)n);
+    size_t str_len = strlen(str);
+    size_t up_str_len = strlen(up);
+    size_t down_str_len = strlen(down);
+    size_t up_len = g_utf8_strlen(up, -1);
+    size_t down_len = g_utf8_strlen(down, -1);
+
+    g_free(down);
+    g_free(up);
+    g_free(normalized);
+    down = NULL;
+    up = NULL;
+
+    if (str_len != up_len || str_len != down_len || up_str_len != up_len || down_str_len != down_len) {
+        return true;
+    }
+    return false;
 }
 
 int
-strncasecmp(const char *_l, const char *_r, size_t n)
-{
-	const unsigned char *l=(void *)_l, *r=(void *)_r;
-	if (!n--) return 0;
-	for (; *l && *r && n && (*l == *r || tolower(*l) == tolower(*r)); l++, r++, n--);
-	return tolower(*l) - tolower(*r);
+fs_str_is_regex(const char *str) {
+    char regex_chars[] = {'$', '(', ')', '*', '+', '.', '?', '[', '\\', '^', '{', '|', '\0'};
+
+    return (strpbrk(str, regex_chars) != NULL);
+}
+
+bool
+fs_str_utf8_has_upper(const char *str) {
+    char *p = (char *)str;
+    if (!g_utf8_validate(p, -1, NULL)) {
+        return false;
+    }
+    while (p && *p != '\0') {
+        gunichar c = g_utf8_get_char(p);
+        if (g_unichar_isupper(c)) {
+            return true;
+        }
+        p = g_utf8_next_char(p);
+    }
+    return false;
+}
+
+bool
+fs_str_has_upper(const char *strc) {
+    assert(strc != NULL);
+    const char *ptr = strc;
+    while (*ptr != '\0') {
+        if (isupper(*ptr)) {
+            return true;
+        }
+        ptr++;
+    }
+    return false;
 }
 
 char *
-my_strcasestr(const char *haystack, const char *needle, size_t needle_len)
-{
-    for (; *haystack; haystack++) {
-        if (!strncasecmp(haystack, needle, needle_len)) {
-            return (char *)haystack;
+fs_str_copy(char *dest, char *end, const char *src) {
+    char *ptr = dest;
+    while (ptr != end && *src != '\0') {
+        *ptr++ = *src++;
+    }
+    *ptr = '\0';
+    return ptr;
+}
+
+static bool
+is_nul(char p) {
+    return p == '\0' ? true : false;
+}
+
+static char *
+consume_space(char *str, bool *eos) {
+    while (true) {
+        if (is_nul(*str)) {
+            *eos = true;
+            return str;
+        }
+        if (*str == ' ') {
+            str++;
+            continue;
+        }
+        *eos = false;
+        return str;
+    }
+}
+
+static char *
+consume_escape(char *str, char **dest, bool *eos) {
+    char *d = *dest;
+    if (is_nul(*str)) {
+        *eos = true;
+        return str;
+    }
+
+    *d = *str;
+    d++;
+
+    *dest = d;
+    return str + 1;
+}
+
+char **
+fs_str_split(const char *src) {
+    if (!src) {
+        return NULL;
+    }
+
+    GPtrArray *new = g_ptr_array_new();
+    // Duplicate input string to make sure destination is large enough
+    char *dest = g_strdup(src);
+    char *s = dest;
+    char *d = dest;
+    bool inside_quotation_marks = false;
+    bool eos = false;
+    while (!eos) {
+        switch (*s) {
+        case '\0':
+            eos = true;
+            break;
+        case '\\':
+            s = consume_escape(s + 1, &d, &eos);
+            break;
+        case '"':
+            s++;
+            inside_quotation_marks = inside_quotation_marks ? false : true;
+            break;
+        case ' ':
+            if (inside_quotation_marks) {
+                *d = *s;
+                d++;
+                s++;
+                break;
+            }
+            // split at space
+            *d = '\0';
+            d = dest;
+            if (strlen(dest) > 0) {
+                g_ptr_array_add(new, g_strdup(dest));
+            }
+            s = consume_space(s + 1, &eos);
+            break;
+        default:
+            *d = *s;
+            d++;
+            s++;
+            break;
         }
     }
-    return 0;
+    *d = '\0';
+    if (strlen(dest) > 0) {
+        g_ptr_array_add(new, g_strdup(dest));
+    }
+
+    // make sure last element is NULL
+    g_ptr_array_add(new, NULL);
+
+    g_free(dest);
+
+    return (char **)g_ptr_array_free(new, FALSE);
 }
 
-const char *
-fsearch_strcasestr (const char *haystack,
-                    const char *needle,
-                    size_t needle_len)
-{
-    return strcasestr (haystack, needle);
-    //return my_strcasestr (haystack, needle, needle_len);
-}
-
-const char *
-fsearch_strstr (const char *haystack,
-                const char *needle,
-                size_t needle_len)
-{
-    return my_strstr (haystack, needle);
-}

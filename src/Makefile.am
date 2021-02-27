@@ -1,7 +1,6 @@
 EXTRA_DIST = fsearch.glade \
 	     shared.css \
 	     gresource.xml \
-	     popover.ui \
 	     preferences.ui \
 	     overlay.ui \
 	     menus.ui
@@ -18,20 +17,28 @@ fsearch_NOINST_H_FILES = fsearch.h \
 			 array.h \
 			 btree.h \
 			 clipboard.h \
-			 config.h \
+			 fsearch_config.h \
 			 database.h \
 			 database_search.h \
 			 debug.h \
 			 fsearch_thread_pool.h \
+			 fsearch_timer.h \
 			 fsearch_window.h \
 			 fsearch_window_actions.h \
-			 iconstore.h \
+			 fsearch_limits.h \
+			 fsearch_filter.h \
+			 fsearch_include_path.h \
+			 fsearch_exclude_path.h \
+			 fsearch_preferences_widgets.h \
 			 list_model.h \
 			 listview.h \
+			 listview_popup.h \
 			 preferences_ui.h \
 			 query.h \
 			 string_utils.h \
+			 token.h \
 			 ui_utils.h \
+			 utf8.h \
 			 utils.h
 
 fsearch_SOURCES = main.c \
@@ -39,20 +46,26 @@ fsearch_SOURCES = main.c \
 		  fsearch_window.c \
 		  fsearch_window_actions.c \
 		  clipboard.c \
-		  config.c \
+		  fsearch_config.c \
 		  database.c \
 		  database_search.c \
-		  iconstore.c \
 		  list_model.c \
 		  preferences_ui.c \
 		  resources.c \
 		  ui_utils.c \
 		  fsearch_thread_pool.c \
+		  fsearch_timer.c \
+		  fsearch_filter.c \
+		  fsearch_include_path.c \
+		  fsearch_exclude_path.c \
+		  fsearch_preferences_widgets.c \
 		  array.c \
 		  string_utils.c \
 		  btree.c \
 		  listview.c \
+		  listview_popup.c \
 		  query.c \
+		  token.c \
 		  utils.c \
 		  $(fsearch_NOINST_H_FILES)
 

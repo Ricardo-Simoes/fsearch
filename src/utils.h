@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,14 +18,21 @@
 
 #pragma once
 
-#include <glib.h>
 #include "btree.h"
+#include <glib.h>
+#include <stdbool.h>
 
 gboolean
-build_path (gchar *dest, size_t dest_len, const gchar *path, const gchar *name);
+build_path(gchar *dest, size_t dest_len, const gchar *path, const gchar *name);
 
-void
-launch_node (BTreeNode *node);
+bool
+node_move_to_trash(BTreeNode *node);
 
-void
-launch_node_path (BTreeNode *node);
+bool
+node_delete(BTreeNode *node);
+
+bool
+launch_node(BTreeNode *node);
+
+bool
+launch_node_path(BTreeNode *node, const char *cmd);

@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -17,14 +17,27 @@
    */
 
 #pragma once
+#include <stdbool.h>
 #include <unistd.h>
 
-const char *
-fsearch_strstr (const char *haystack,
-                const char *needle,
-                size_t needle_len);
+int
+fs_str_is_regex(const char *str);
 
-const char *
-fsearch_strcasestr (const char *haystack,
-                    const char *needle,
-                    size_t needle_len);
+bool
+fs_str_is_empty(const char *str);
+
+bool
+fs_str_has_upper(const char *str);
+
+bool
+fs_str_utf8_has_upper(const char *str);
+
+char *
+fs_str_copy(char *dest, char *end, const char *src);
+
+char **
+fs_str_split(const char *str);
+
+bool
+fs_str_is_utf8(const char *str);
+

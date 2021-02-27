@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -21,7 +21,10 @@
 #include "fsearch_window.h"
 
 void
-fsearch_window_actions_init   (FsearchApplicationWindow *self);
+fsearch_window_actions_init(FsearchApplicationWindow *self);
 
 void
-fsearch_window_actions_update   (FsearchApplicationWindow *self);
+fsearch_window_actions_update(FsearchApplicationWindow *self);
+
+void
+fsearch_window_action_after_file_open(bool action_mouse);

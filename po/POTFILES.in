@@ -1,7 +1,13 @@
-[type: gettext/glade]src/fsearch.glade
-[type: gettext/glade]src/menus.ui
-[type: gettext/glade]src/overlay.ui
-[type: gettext/glade]src/popover.ui
-[type: gettext/glade]src/preferences.ui
+src/database.c
+src/fsearch.c
+src/fsearch.glade
+src/fsearch_filter.c
+src/fsearch_preferences_widgets.c
 src/fsearch_window.c
+src/fsearch_window_actions.c
 src/listview.c
+src/menus.ui
+src/overlay.ui
+src/preferences.ui
+src/preferences_ui.c
+data/fsearch.desktop.in.in

@@ -7,5 +7,5 @@ Icon=system-search
 TryExec=@PACKAGE@
 Exec=@PACKAGE@
 Categories=GTK;Utility;Core;
-Keywords=search;fsearch;files;find;tool;everything;
+Keywords=search;fsearch;files;folders;music;video;documents;find;tool;everything;
 StartupNotify=true

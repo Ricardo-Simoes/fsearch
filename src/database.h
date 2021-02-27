@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,78 +18,58 @@
 
 #pragma once
 
-#include <glib.h>
-#include <stdint.h>
-#include <stdbool.h>
 #include "array.h"
 #include "btree.h"
+#include <glib.h>
+#include <stdbool.h>
+#include <stdint.h>
 
-typedef struct _Database Database;
+typedef struct _FsearchDatabase FsearchDatabase;
 
-typedef struct _DatabaseLocation DatabaseLocation;
-
-void
-db_location_free (DatabaseLocation *location);
-
-bool
-db_location_load (Database *db, const char *location_name);
+typedef struct _FsearchDatabaseNode FsearchDatabaseNode;
 
 bool
-db_location_build_new (Database *db,
-                       const char *location_name,
-                       void (*callback)(const char *));
+db_make_data_dir(void);
+
+void
+db_build_data_dir(char *path, size_t len);
 
 bool
-db_location_remove (Database *db, const char *path);
+db_load_from_file(FsearchDatabase *db, const char *path, void (*callback)(const char *));
 
 bool
-db_location_write_to_file (DatabaseLocation *location, const char *fname);
-
-BTreeNode *
-db_location_get_entries (DatabaseLocation *location);
+db_scan(FsearchDatabase *db, bool *cancel, void (*callback)(const char *));
 
 void
-db_free (Database *db);
-
-Database *
-db_database_new ();
-
-gboolean
-db_list_append_node (BTreeNode *node,
-                     gpointer data);
+db_ref(FsearchDatabase *db);
 
 void
-db_update_sort_index (Database *db);
+db_unref(FsearchDatabase *db);
+
+FsearchDatabase *
+db_new(GList *includes, GList *excludes, char **exclude_files, bool exclude_hidden);
 
 bool
-db_save_locations (Database *db);
-
-void
-db_update_entries_list (Database *db);
-
-void
-db_build_initial_entries_list (Database *db);
+db_save_locations(FsearchDatabase *db);
 
 time_t
-db_get_timestamp (Database *db);
+db_get_timestamp(FsearchDatabase *db);
 
 uint32_t
-db_get_num_entries (Database *db);
+db_get_num_entries(FsearchDatabase *db);
 
 void
-db_unlock (Database *db);
+db_unlock(FsearchDatabase *db);
 
 void
-db_lock (Database *db);
+db_lock(FsearchDatabase *db);
 
 bool
-db_try_lock (Database *db);
+db_try_lock(FsearchDatabase *db);
 
 DynamicArray *
-db_get_entries (Database *db);
+db_get_entries(FsearchDatabase *db);
 
 void
-db_sort (Database *db);
+db_sort(FsearchDatabase *db);
 
-bool
-db_clear (Database *db);

@@ -1,6 +1,6 @@
 /*
 FSearch - A fast file search utility
-Copyright © 2016 Christian Boxdörfer
+Copyright © 2020 Christian Boxdörfer
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,6 +19,10 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #include <glib.h>
+#include <stdbool.h>
 
 void
-clipboard_copy_file_list (GList *file_list, guint32 copy);
+clipboard_copy_file_list(GList *file_list, bool copy);
+
+void
+clipboard_copy_filepath_list(GList *file_list);

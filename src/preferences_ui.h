@@ -1,6 +1,6 @@
 /*
    FSearch - A fast file search utility
-   Copyright © 2016 Christian Boxdörfer
+   Copyright © 2020 Christian Boxdörfer
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,8 +18,30 @@
 
 #pragma once
 
+#include "fsearch_config.h"
 #include <gtk/gtk.h>
-#include "config.h"
 
-void
-preferences_ui_launch (FsearchConfig *main_config, GtkWindow *window);
+typedef enum FsearchPreferencesPage {
+    PREF_PAGE_GENERAL = 0,
+    PREF_PAGE_SEARCH,
+    PREF_PAGE_DATABASE,
+    N_PREF_PAGES,
+
+} FsearchPreferencesPage;
+
+typedef struct _FsearchPreferences {
+    FsearchConfig *config;
+    GtkTreeModel *include_model;
+    GtkTreeModel *exclude_model;
+    bool update_db;
+    bool update_list;
+    bool update_search;
+} FsearchPreferences;
+
+FsearchConfig *
+preferences_ui_launch(FsearchConfig *main_config,
+                      GtkWindow *window,
+                      FsearchPreferencesPage page,
+                      bool *update_db,
+                      bool *update_list,
+                      bool *update_search);
